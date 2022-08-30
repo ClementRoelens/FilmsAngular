@@ -1,0 +1,5 @@
+<div id="films">
+    <ul *ngIf="films">
+        <li (click)="getOneFilm(film._id)" *ngFor="let film of films">{{film.title}}</li>
+    </ul>
+</div>

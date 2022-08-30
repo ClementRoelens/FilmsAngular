@@ -1,0 +1,8 @@
+<div id="genres">
+    <ul>
+        <li *ngFor="let genre of genres" 
+        [ngClass]="{activeGenre : activeGenres.includes(genre) , genreClass : !activeGenres.includes(genre)}"
+        (click)="getFilms(genre)"
+        >{{genre}}</li>
+    </ul>
+</div>

@@ -1,0 +1,11 @@
+<div id="opinion">
+    <h1>{{opinion.author}}</h1>
+    <p>{{opinion.content}}</p>
+    <div id="opinionIcons">
+        <img src="../assets/arrow_left.png" alt="arrow_left" (click)="opinionSelection(-1)">
+        <div>
+            <span>{{opinion.likes}}</span>
+            <img [src]="likedOpinionIcon" alt="heart_icon" (click)="likeOpinion()">
+        </div>
+        <img src="../assets/arrow_right.png" alt="arrow_right" (click)="opinionSelection(1)">
+</div>

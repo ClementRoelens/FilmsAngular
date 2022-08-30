@@ -1,0 +1,9 @@
+<h1>Connexion</h1>
+<form [formGroup]="userForm" (ngSubmit)="signin()">
+    <label >Pseudo : </label>
+    <input type="text" formControlName="nickname">
+    <label >Mot de passe : </label>
+    <input type="password" formControlName="password">
+    <button type="submit">Connexion</button>
+</form>
+

@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    background-color: rgb(50, 50, 50);
+    color: white;
+    margin-top: 0px;
+}
+
+button {
+    height: 60px;
+    padding: 15px;
+    display: block;
+    background-color: rgb(95, 95, 95);
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    border: solid 1px white;
+    padding: 7px;
+    text-align: center;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+#film {
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+h1 {
+    font-weight: 100;
+    font-size: 3em;
+    margin: 0 auto 0 auto;
+}
+
+h2 {
+    font-weight: normal;
+    margin-top: 0;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.3em;
+    font-weight: normal;
+}
+
+#opinions_and_likes .icons,
+#opinionIcons img {
+    width: 30px;
+    cursor: pointer;
+}

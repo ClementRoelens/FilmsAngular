@@ -1,0 +1,20 @@
+<div id="app">
+    <app-header></app-header>
+    <div id="content">
+      <app-films-list
+        [films]="transmittedFilms"
+        (seekedFilmId)="seekFilm($event)"
+      ></app-films-list>
+      <app-film id="film"
+      *ngIf="selectedFilm"
+      [film]="selectedFilm"
+      [isLogged]="isLogged"
+      (seekedDirector)="seekDirector($event)">
+    </app-film>
+      <app-genres-list
+      *ngIf="selectedFilm"
+      [activeGenres]="filmGenres"
+      (seekedGenre)="seekGenre($event)">
+    </app-genres-list>
+    </div>
+  </div>

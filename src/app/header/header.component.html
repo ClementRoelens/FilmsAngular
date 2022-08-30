@@ -1,0 +1,19 @@
+<div id="component">
+    <div id="signin">
+        <button *ngIf="!isLogged" [routerLink]="['/signin']">Connexion</button>
+        <button *ngIf="isLogged" (click)="signout()">Déconnexion</button>
+    </div>
+    <h2>Bonjour {{user.nickname}} !</h2>
+    <div id="account_right">
+        <button *ngIf="!isLogged" [routerLink]="['/signup']" >Inscription</button>
+        <div *ngIf="isLogged">
+            Films aimés : {{user.likedFilmsId.length}}
+        </div>
+        <div *ngIf="isLogged">
+            Films rejetés : {{user.dislikedFilmsId.length}}
+        </div>
+        <div *ngIf="isLogged">
+            Avis laissés : {{user.opinionsId.length}}
+        </div>
+    </div>
+</div>

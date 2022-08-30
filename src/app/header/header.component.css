@@ -1,0 +1,42 @@
+#component {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    margin: auto;
+    padding: 5px 10px 12px 10px;
+    border: solid 1px rgb(76 88 102);
+    border-radius: 25px;
+    border-top: none;
+    background-color: rgb(76 88 102);
+}
+
+#signin {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    margin: auto;
+    border-radius: 30px;
+    height: 45px;
+    width: 110px;
+    padding: 0;
+}
+
+div div {
+    margin-top: 5px;
+    font-size:0.8em;
+}
+
+h2 {
+    margin-top: 12px;
+    margin-bottom: 0px;
+    font-size: 2.1em;
+    font-weight: normal;
+}
+
+#account_right {
+    width: 110px;
+}

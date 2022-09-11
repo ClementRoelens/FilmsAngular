@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { APIServiceService } from '../apiservice.service';
+import { APIService } from '../api.service';
 
 @Component({
   selector: 'app-signin',
@@ -10,31 +10,36 @@ import { APIServiceService } from '../apiservice.service';
 })
 export class SigninComponent implements OnInit {
 
-  userForm:FormGroup;
+  userForm: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
-    private service:APIServiceService,
-    private route:Router
-    ) { }
+    private service: APIService,
+    private route: Router
+  ) { }
 
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
-      nickname:"",
-      password:""
+      nickname: [null, Validators.required],
+      password: [null, Validators.required]
     });
   }
 
-  signin(){
-    this.service.signin(this.userForm.value.nickname,this.userForm.value.password).subscribe((res:any)=>{
-      localStorage.setItem("id", res.userId);
-      localStorage.setItem("nickname", res.nickname);
-      localStorage.setItem("likedFilmsId", JSON.stringify(res.likedFilmsId));
-      localStorage.setItem("opinionsId", JSON.stringify(res.opinionsId));
-      localStorage.setItem("likedOpinionssId", JSON.stringify(res.likedOpinionsId));
-      localStorage.setItem("dislikedFilmsId", JSON.stringify(res.dislikedFilmsId));
-      localStorage.setItem("isAdmin", res.isAdmin);
-      localStorage.setItem("jwt", res.token);
-      this.route.navigate(["home"]);
-    })
+  signin() {
+    if (this.userForm.valid){
+      this.service.signin(this.userForm.value.nickname, this.userForm.value.password).subscribe(
+        user => {
+        // Si l'utilisateur est correctement identifié, on met son ID en localStorage. 
+        localStorage.setItem("id", user._id);
+        // Celui-ci sera récupéré dans le OnInit du composant Home qui se chargera de récupérer les autres infos de l'utilisateur
+        this.route.navigateByUrl("home");
+      },
+      error =>{
+        console.log(error);
+        alert(error.error);
+      });
+    }
+    else {
+      alert("Les champs doivent être remplis");
+    }
   }
 }

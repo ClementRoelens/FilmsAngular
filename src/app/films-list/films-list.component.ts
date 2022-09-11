@@ -8,6 +8,7 @@ import { Film } from '../models/Film';
 })
 export class FilmsListComponent implements OnInit {
 
+  // Composant affichant la liste des films et permettant d'en afficher un en cliquant dessus
   @Input() films:Film[];
   @Output() seekedFilmId = new EventEmitter<string>();
 

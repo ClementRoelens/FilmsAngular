@@ -3,11 +3,11 @@
     <div id="center">
         <div id="opinions_and_likes">
             <div id="likes">
-                <img (click)="like()" class="icons" [src]="likedIcon" alt="Likes">
+                <img (click)="likeOrDislike('like')" class="icons" [src]="likedIcon" alt="Likes">
                 <div>{{film.likes}}</div>
             </div>
             <div id="dislikes">
-                <img (click)="dislike()" class="icons" [src]="dislikedIcon" alt="Dislikes">
+                <img (click)="likeOrDislike('dislike')" class="icons" [src]="dislikedIcon" alt="Dislikes">
                 <div>{{film.dislikes}}</div>
             </div>
             <div id="opinionIcon">
@@ -19,11 +19,14 @@
         <div id="opinionArea">
             <app-opinion *ngIf="selectedOpinion"
             [opinion]="selectedOpinion"
+            [author]="opinionAuthor"
             (opinionIndexChange)="opinionSelection($event)"
+            [isLiked]="isOpinionLiked"
+            (opinionLiked)="likeOpinion($event)"
             [isLogged]="isLogged"></app-opinion>
         </div>
     </div>
-    <h2 id="director" (click)="getFilms()">{{film.director}}</h2>
+    <h2 id="director" (click)="getFilms(film.director)">{{film.director}}</h2>
     <h2 id="date">Sorti le {{film.date}}</h2>
     
     <div id="description">

@@ -21,15 +21,14 @@ export class GenresListComponent implements OnInit {
     "Thriller",
     "Western"
   ];
+  // Les gens actifs sont ceux qu'on peut attribuer au film sélectionné, film présent dans le composant parent
   @Input() activeGenres:string[];
+  // En cliquant sur un genre, on active chez le parent la recherche de tous les films de ce genre
   @Output() seekedGenre = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  ngOnChanges() {
   }
 
   getFilms(genre:string){

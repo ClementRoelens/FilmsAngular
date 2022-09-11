@@ -3,7 +3,7 @@
         <button *ngIf="!isLogged" [routerLink]="['/signin']">Connexion</button>
         <button *ngIf="isLogged" (click)="signout()">Déconnexion</button>
     </div>
-    <h2>Bonjour {{user.nickname}} !</h2>
+    <h2>Bonjour <span *ngIf="isLogged">{{user.nickname}}</span><span *ngIf="!isLogged">visiteur</span>!</h2>
     <div id="account_right">
         <button *ngIf="!isLogged" [routerLink]="['/signup']" >Inscription</button>
         <div *ngIf="isLogged">

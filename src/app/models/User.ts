@@ -1,10 +1,10 @@
 export interface User {
-    userId:string,
+    _id?:string,
     nickname:string,
-    likedFilmsId:[string],
-    dislikedFilmsId:[string],
-    opinionsId:[string],
-    likedOpinionsId:[string],
+    likedFilmsId:string[],
+    dislikedFilmsId:string[],
+    opinionsId:string[],
+    likedOpinionsId:string[],
     isAdmin:boolean,
-    token:string
+    password?:string
 }

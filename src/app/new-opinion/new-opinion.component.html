@@ -1,0 +1,5 @@
+<form (ngSubmit) = "sendOpinion()">
+    <label for="opinion">Votre avis : </label>
+    <textarea [(ngModel)]="opinion" name="opinion"></textarea>
+    <button type="submit">{{(action === "create") ? "Poster" : "Modifier"}}</button>
+</form>

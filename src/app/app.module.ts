@@ -10,8 +10,10 @@ import { FilmComponent } from './film/film.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { httpInterceptorProviders } from './interceptors';
+import { NewOpinionComponent } from './new-opinion/new-opinion.component';
 
 @NgModule({
   declarations: [
@@ -23,15 +25,19 @@ import { HomeComponent } from './home/home.component';
     OpinionComponent,
     FilmComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    NewOpinionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

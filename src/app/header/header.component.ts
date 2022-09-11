@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { User } from '../models/User';
 
 @Component({
@@ -8,21 +8,16 @@ import { User } from '../models/User';
 })
 export class HeaderComponent implements OnInit {
 
-  user:User={
-    userId:null,
-    nickname:"visiteur",
-    likedFilmsId:[""],
-    dislikedFilmsId:[""],
-    opinionsId:[""],
-    likedOpinionsId:[""],
-    isAdmin:false,
-    token:null
-  };
-  isLogged:false;
+  @Input() user:User;
+  @Input() isLogged:boolean;
+  @Output() signoutMessage = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  signout(){
+    this.signoutMessage.emit();
+  }
 }

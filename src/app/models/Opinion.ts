@@ -1,5 +1,6 @@
 export interface Opinion {
     content:string,
     likes:number,
-    author:string
+    author:string,
+    _id?:string
 }

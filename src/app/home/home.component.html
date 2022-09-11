@@ -1,5 +1,8 @@
 <div id="app">
-    <app-header></app-header>
+    <app-header
+    [user]="user"
+    [isLogged]="isLogged"
+    (signoutMessage)="signout()"></app-header>
     <div id="content">
       <app-films-list
         [films]="transmittedFilms"
@@ -7,6 +10,7 @@
       ></app-films-list>
       <app-film id="film"
       *ngIf="selectedFilm"
+      [user]="user"
       [film]="selectedFilm"
       [isLogged]="isLogged"
       (seekedDirector)="seekDirector($event)">

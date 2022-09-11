@@ -1,5 +1,4 @@
-import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
-import { emit } from 'process';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Opinion } from '../models/Opinion';
 
 @Component({
@@ -10,27 +9,31 @@ import { Opinion } from '../models/Opinion';
 export class OpinionComponent implements OnInit {
 
   @Input() opinion: Opinion;
+  @Input() author:string;
   @Output() opinionIndexChange = new EventEmitter<number>();
   @Input() isLogged:boolean;
-  likedOpinionIcon: string = "./assets/empty_heart.png";
+  @Input() isLiked:boolean;
+  likedOpinionIcon: string;
+  @Output() opinionLiked = new EventEmitter<string>();
+
   constructor() { }
 
   ngOnInit(): void {
-    console.log("opinionComponent init");
   }
 
   ngOnChanges() {
-    console.log("opinionComponent changes");
+    // À chaque changement, on vérifie que l'avis affiché est liké par l'utilisateur ou non pour mettre à jour l'icône
+    this.likedOpinionIcon = this.isLiked ? "./assets/full_heart.png" : "./assets/empty_heart.png";
   }
 
   opinionSelection(selection: number) {
-    console.log("opinionSelection lancé!");
+    // Fonction gérée par le composant parent Film, car on n'a pas transmis l'utilisateur jusqu'ici
     this.opinionIndexChange.emit(selection);
   }
 
   likeOpinion() {
     if (this.isLogged){
-
+      this.opinionLiked.emit(this.opinion._id);
     }
     else{
       alert("Connectez-vous pour effectuer cette action");
